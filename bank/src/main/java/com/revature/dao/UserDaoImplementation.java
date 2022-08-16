@@ -14,7 +14,7 @@ import com.revature.util.ConnectionUtil;
 
 public class UserDaoImplementation implements UserDao {
 
-     static Logger logger = LogManager.getLogger(UserDaoImplementation.class);
+    // static Logger logger = LogManager.getLogger(UserDaoImplementation.class);
 
     @Override
     public List<User> getAllUsers() {
@@ -39,7 +39,8 @@ public class UserDaoImplementation implements UserDao {
             conn.close();
             
         } catch (SQLException e) {
-            logger.error("Sql Exception Occured", e);
+            //logger.error("Sql Exception Occured", e);
+            System.out.printf("Sql Exception Occured", e);
         }
 
         return users;
@@ -68,7 +69,8 @@ public class UserDaoImplementation implements UserDao {
             }
             
         } catch (SQLException e) {
-            logger.error("Sql Exception Occured", e);
+           // logger.error("Sql Exception Occured", e);
+           System.out.printf("Sql Exception Occured", e);
         }
 
         return user;
@@ -96,7 +98,8 @@ public class UserDaoImplementation implements UserDao {
             conn.close();
             
         } catch (SQLException e) {
-            logger.error("Sql Exception Occured", e);
+           // logger.error("Sql Exception Occured", e);
+           System.out.printf("Sql Exception Occured", e);
         }
     }
     
