@@ -15,14 +15,16 @@ public class MainMenu {
 
     UserService userService = new UserService();
     InputUtil inputUtil = new InputUtil();
-    
+    /******************************************************* */
     public void view(){
-        //scanner allows us to take input from the console
+        
         Scanner scanner = new Scanner(System.in);
         Boolean running = true;
 
         while(running){
-            System.out.println( "Bank Application!\n1) login\n2) register\n0) EXIT" );
+            System.out.println( "Welcome to the Bank Application!\n1) login as customer\n2) register");
+            System.out.print("\n3)Login as employee");
+            System.out.println("\n0) EXIT");
             String input = scanner.nextLine();
 
             switch (input) {
@@ -36,7 +38,7 @@ public class MainMenu {
                     if(areCredentialsValid){
                         logger.info("User " + usernameInput + " successfully logged into system");
                         User userFromDb = this.userService.getUserGivenUsername(usernameInput);
-                        new Dashboard().view(userFromDb);
+                        new dashboard().view(userFromDb);
                     }else{
                         System.out.println("Invalid username or password");
                     }
@@ -59,6 +61,9 @@ public class MainMenu {
                     }else{
                         System.out.println("User Created");
                     }
+                case "3":
+                
+                
 
                     break;
                 case "0":

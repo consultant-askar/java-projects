@@ -8,6 +8,12 @@ public interface UserAccountDao {
     void createUserAccount(UserAccount useraccount);
     void deleteUserAccount(UserAccount useraccount);
     List<UserAccount>getAllAccountsGivenUserId(Integer userId);
+
+    /****** */
+    void applyForNewUserAccount ();
+    void transferMoney();
+
+
 }
 
 

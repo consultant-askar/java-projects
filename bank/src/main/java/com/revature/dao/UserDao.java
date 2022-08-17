@@ -13,11 +13,11 @@ import com.revature.util.ConnectionUtil;
 
 
 public interface UserDao {
-
+// One
 List<User> getAllUsers();
-
+// Two
 User getUserByUsername(String usertname);
-
+// three
 void createUser(User user);
     
 }

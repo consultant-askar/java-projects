@@ -1,5 +1,6 @@
 package com.revature.dao;
-
+import com.revature.models.User;
+import com.revature.util.ConnectionUtil;
 import java.util.List;
 import java.util.logging.LogManager;
 import java.lang.System.Logger;
@@ -9,12 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.revature.models.User;
-import com.revature.util.ConnectionUtil;
+
 
 public class UserDaoImplementation implements UserDao {
 
-    // static Logger logger = LogManager.getLogger(UserDaoImplementation.class);
+    // static Logger logger = LogManager.addLogger(UserDaoImplementation.class);
 
     @Override
     public List<User> getAllUsers() {
@@ -80,7 +80,7 @@ public class UserDaoImplementation implements UserDao {
     public void createUser(User user) {
         
         try {
-            //this line created creates an active connection to the database
+            //this line creates an active connection to the database
             Connection conn = ConnectionUtil.getConnection();
 
             //sql that we will be executing

@@ -10,8 +10,11 @@ import com.revature.util.InputUtil;
 
 public class dashboard {
 
+    private static final String deleteUserAccount = null;
     UserAccountService userAccountService = new UserAccountService();
     InputUtil inputUtil = new InputUtil();
+    private String accountType;
+    private float balance;
 
     public void view(User userFromDb) {
         
@@ -20,26 +23,24 @@ public class dashboard {
         while(running){
             System.out.println("Welcome " + userFromDb.getFirstname());
             printItems(userFromDb);
-            System.out.println("\n\n1) Create New Account\n2) View Balance in Checking\n3) View Balance in Savings\n0)LOGOUT");
+            System.out.println("\n\n1) Create New Account\n2) Delete Account\n3) List All Accounts I Have\n0) LOGOUT");
 
             String input = inputUtil.retrieveString("Choose: ");
 
             switch (input) {
                 case "1":
-                    String groceryName = inputUtil.retrieveString("Name of Item: ");
-                    Integer groceryQty = inputUtil.retrieveInt("Amount: ");
-                    this.groceryItemService.createGroceryItem(new GroceryItem(groceryName, groceryQty, userFromDb.getId()));
-                    System.out.println("Item Created");
+                    Integer accountNumber = inputUtil.retrieveInt("Account Number: ");
+                    
+                    this.userAccountService.createUserAccount(new UserAccount());
+                    System.out.println("Account Created");
                     break;
                 case "2":
-                    Integer itemId = inputUtil.retrieveInt("Item Id: ");
-                    this.groceryItemService.markInCartGivenGroceryId(itemId);
-                    System.out.println("marked in cart if item id exists");
+                    // delete account
+                    
                     break;
                 case "3":
-                    Integer groceryItemId = inputUtil.retrieveInt("Item Id: ");
-                    this.groceryItemService.deleteAGroceryItemGivenGroceryId(groceryItemId);
-                    System.out.println("item deleted if item id exists");
+                   // List All accounts
+
                     break;
                 case "0":
                     running = false;
@@ -53,11 +54,11 @@ public class dashboard {
         }
     }
 
-    private void printItems(User userFromDb){
-        List<GroceryItem> items = this.groceryItemService.getAllGroceryItemsGivenUserId(userFromDb.getId());
+     private void printItems(User userFromDb){
+       List<UserAccount> accounts = this.userAccountService.getAllAccountsGivenUserId(userFromDb.getId());
 
-        for(GroceryItem item : items){
-            System.out.println(item);
+         for(UserAccount account : accounts){
+            System.out.println(account);
         }
     }
     

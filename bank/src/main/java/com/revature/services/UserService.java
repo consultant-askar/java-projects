@@ -21,7 +21,7 @@ public class UserService {
     public UserService(UserDao userDao){
         this.userDao = userDao;
     }
-
+         /******************************* */
     public boolean validateCredentials(User credentials) {
 
         User userFromDb = userDao.getUserByUsername(credentials.getUsername());
@@ -32,16 +32,15 @@ public class UserService {
         if(userFromDb.getPassword().equals(credentials.getPassword())){
             return true;
         }
-    
-
         return false;
     }
-
+        /**************************** */
     public User getUserGivenUsername(String username){
         return userDao.getUserByUsername(username);
     }
 
-
+        /*************************************** */
+        
     public User createUser(User userToCreate){
 
         User userFromDb = userDao.getUserByUsername(userToCreate.getUsername());

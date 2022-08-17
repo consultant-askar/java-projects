@@ -19,7 +19,7 @@ public class InputUtil {
             System.out.print(msg);
             try {
                 num = Integer.parseInt(scanner.nextLine());
-                //throw new RuntimeException();  //this is how we manually throw an exception
+                //throw new RuntimeException(); =>  //this is how we manually throw an exception
                 valid = true;
             } catch (NumberFormatException nfe) {
                 System.out.println("Not a number...");
