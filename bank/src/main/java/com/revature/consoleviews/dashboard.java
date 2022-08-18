@@ -4,43 +4,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.UserAccount;
+import com.revature.models.PendingAccounts;
 import com.revature.models.User;
+import com.revature.services.PendingAccountService;
 import com.revature.services.UserAccountService;
 import com.revature.util.InputUtil;
 
 public class dashboard {
 
-    private static final String deleteUserAccount = null;
+    
     UserAccountService userAccountService = new UserAccountService();
+    PendingAccountService pAccountService = new PendingAccountService();
     InputUtil inputUtil = new InputUtil();
-    private String accountType;
-    private float balance;
-
+   
     public void view(User userFromDb) {
         
 
         Boolean running = true;
         while(running){
             System.out.println("Welcome " + userFromDb.getFirstname());
-            printItems(userFromDb);
-            System.out.println("\n\n1) Create New Account\n2) Delete Account\n3) List All Accounts I Have\n0) LOGOUT");
+            printAccounts(userFromDb);
+            System.out.println("\n\n1) Apply For New Account\n2) Deposite\n3) Withdraw\n4) Check Balance\n5 Transfer Money");
 
             String input = inputUtil.retrieveString("Choose: ");
 
             switch (input) {
                 case "1":
-                    Integer accountNumber = inputUtil.retrieveInt("Account Number: ");
+                    // apply (request) new account
+                    String accountType = inputUtil.retrieveString("Account type: ");
+                    Integer userId = inputUtil.retrieveInt( "User ID: ");
                     
-                    this.userAccountService.createUserAccount(new UserAccount());
-                    System.out.println("Account Created");
+                    this.pAccountService.creatRequest(new PendingAccounts(accountType, userId));
+                   
+                    System.out.println("Request was sent...waiting for approval");
+                    
                     break;
+                    
                 case "2":
-                    // delete account
+                    // deposite money
+                    System.out.println("");
                     
                     break;
                 case "3":
-                   // List All accounts
+                   // withdraw
 
+                    break;
+                case "4": 
+                // check balance
+                    break;
+                case "5":
+                    //transfer money
                     break;
                 case "0":
                     running = false;
@@ -54,7 +67,7 @@ public class dashboard {
         }
     }
 
-     private void printItems(User userFromDb){
+     private void printAccounts(User userFromDb){
        List<UserAccount> accounts = this.userAccountService.getAllAccountsGivenUserId(userFromDb.getId());
 
          for(UserAccount account : accounts){

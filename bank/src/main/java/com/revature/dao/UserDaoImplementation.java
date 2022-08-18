@@ -45,7 +45,7 @@ public class UserDaoImplementation implements UserDao {
 
         return users;
     }
-
+        /************************************************************** */
     @Override
     public User getUserByUsername(String username) {
         
@@ -75,15 +75,15 @@ public class UserDaoImplementation implements UserDao {
 
         return user;
     }
-
+        /***************************************************************** */
     @Override
     public void createUser(User user) {
         
         try {
-            //this line creates an active connection to the database
+            
             Connection conn = ConnectionUtil.getConnection();
 
-            //sql that we will be executing
+            
             String sql = "insert into users (username, password, firstname, lastname) values (?,?,?,?);";
             PreparedStatement ps = conn.prepareStatement(sql);
 

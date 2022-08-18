@@ -13,6 +13,8 @@ void denyCustomersPengingAccount(PendingAccounts pendingAccount);
 
 List<PendingAccounts> getAllPendings();
 
+void creatRequest(PendingAccounts pendingAccounts);
+
 
     
 }

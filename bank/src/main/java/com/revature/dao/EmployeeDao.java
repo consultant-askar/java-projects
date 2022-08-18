@@ -8,10 +8,14 @@ import java.util.List;
 public interface EmployeeDao {
 
     
-    void creatEmployee(Employee employee);
+    //void creatEmployee(Employee employee);
 
-    Employee getEmployeeByUserName(String username);
-        //---------------//
+    Employee getEmployeeByUsername(String username);
+       
+    void createUser(Employee employee);
+
+        
+
     List<UserAccount> getAllApprovidAccounts();
 
    // List<> getAllPendingAccounts();

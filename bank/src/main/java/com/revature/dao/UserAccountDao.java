@@ -9,9 +9,12 @@ public interface UserAccountDao {
     void deleteUserAccount(UserAccount useraccount);
     List<UserAccount>getAllAccountsGivenUserId(Integer userId);
 
-    /****** */
-    void applyForNewUserAccount ();
-    void transferMoney();
+    /************************************ */
+    
+    void transferMoney(UserAccount accountNumber, UserAccount accountNumberAccount, UserAccount balance);
+    
+    void deposite(UserAccount accountNumber, UserAccount balance);
+    void withdraw(UserAccount accountNumber, UserAccount balance);
 
 
 }

@@ -19,7 +19,11 @@ public class PendingAccounts {
         this.approveCreation = approveCreation;
         this.userIdFk = userIdFk;
     }
-
+    
+    public PendingAccounts(String accountType, Integer userIdFk){
+        this.accountType = accountType;
+        this.userIdFk = userIdFk;
+    }
 
     public PendingAccounts(String accountType, String details, Boolean approveCreation, Integer userIdFk) {
         

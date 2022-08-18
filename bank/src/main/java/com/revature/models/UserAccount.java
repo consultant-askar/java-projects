@@ -29,6 +29,10 @@ public class UserAccount {
         this.userIdFk = userIdFk;
         }
     
+    public UserAccount(Integer accountNumber, float balance){
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
 
     public Integer getAccountNumber() {
         return this.accountNumber;

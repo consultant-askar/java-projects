@@ -79,15 +79,21 @@ public class UserAccountDaoImplementation implements UserAccountDao{
        
     }
     @Override
-    public void applyForNewUserAccount() {
+    public void transferMoney(UserAccount accountNumber, UserAccount accountNumberAccount, UserAccount balance) {
         // TODO Auto-generated method stub
         
     }
     @Override
-    public void transferMoney() {
+    public void deposite(UserAccount accountNumber, UserAccount balance) {
         // TODO Auto-generated method stub
         
     }
+    @Override
+    public void withdraw(UserAccount accountNumber, UserAccount balance) {
+        // TODO Auto-generated method stub
+        
+    }
+   
 
 
 

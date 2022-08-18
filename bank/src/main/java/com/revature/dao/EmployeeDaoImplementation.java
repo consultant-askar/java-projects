@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EmployeeDaoEmplementation implements EmployeeDao{
+public class EmployeeDaoImplementation implements EmployeeDao{
 
     
     @Override
-    public Employee getEmployeeByUserName(String username) {
+    public Employee getEmployeeByUsername(String username) {
         Employee employee = null;
 
        try(Connection conn = ConnectionUtil.getConnection()) {
@@ -37,8 +37,9 @@ public class EmployeeDaoEmplementation implements EmployeeDao{
     }
     
 /**************************************************** */
+
     @Override
-    public void creatEmployee(Employee employee) {
+    public void createUser(Employee employee) {
         try {
         Connection conn = ConnectionUtil.getConnection();
         String sql = "insert into employees (username, password, firstname, lastname) values (?,?,?,?);";
@@ -54,7 +55,7 @@ public class EmployeeDaoEmplementation implements EmployeeDao{
 
             conn.close();
             
-        } catch (SQLException e) {
+        }  catch (SQLException e) {
            // logger.error("Sql Exception Occured", e);
            System.out.printf("Sql Exception Occured", e);
         }
@@ -66,6 +67,8 @@ public List<UserAccount> getAllApprovidAccounts() {
     // TODO Auto-generated method stub
     return null;
 }
+
+
 
 
 }

@@ -4,12 +4,7 @@ import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoImplementation;
 import com.revature.models.User;
 
-/* 
- * Service layer is for business logic...
- *      meaning if you need to write some algorithm to meet a requirement of your
- *      project, it will happen in this layer
- * 
- */
+
 public class UserService {
 
     UserDao userDao;
@@ -35,12 +30,14 @@ public class UserService {
         return false;
     }
         /**************************** */
+
     public User getUserGivenUsername(String username){
         return userDao.getUserByUsername(username);
     }
 
         /*************************************** */
-        
+        /************************************** */
+
     public User createUser(User userToCreate){
 
         User userFromDb = userDao.getUserByUsername(userToCreate.getUsername());

@@ -3,8 +3,6 @@ package com.revature.services;
 import java.util.List;
 import com.revature.dao.UserAccountDao;
 import com.revature.dao.UserAccountDaoImplementation;
-import com.revature.dao.UserDao;
-import com.revature.dao.UserDaoImplementation;
 import com.revature.models.UserAccount;
 
 

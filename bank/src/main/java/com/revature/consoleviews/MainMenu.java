@@ -5,31 +5,38 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.models.Employee;
 import com.revature.models.User;
+import com.revature.services.EmployeeService;
 import com.revature.services.UserService;
 import com.revature.util.InputUtil;
+
 
 public class MainMenu {
 
     static Logger logger = LogManager.getLogger(MainMenu.class);
 
     UserService userService = new UserService();
+    EmployeeService employeeService = new EmployeeService();
     InputUtil inputUtil = new InputUtil();
+
     /******************************************************* */
+
     public void view(){
         
         Scanner scanner = new Scanner(System.in);
         Boolean running = true;
 
         while(running){
-            System.out.println( "Welcome to the Bank Application!\n1) login as customer\n2) register");
-            System.out.print("\n3)Login as employee");
+            System.out.print( "Welcome to the Bank Application!\n1) Customer login\n2) New Customer registeration");
+            System.out.print("\n3) Employee Login");
             System.out.println("\n0) EXIT");
             String input = scanner.nextLine();
 
             switch (input) {
                 case "1":
-                    //recieving input for username
+                case "3":
+                    //Login
                     String usernameInput = inputUtil.retrieveString("Username: ");
                     String passwordInput = inputUtil.retrieveString("Password: ");
 
@@ -45,8 +52,9 @@ public class MainMenu {
 
                     break;
                 case "2":
-                    //some logic for register
-                    //recieving input for username
+                
+                    //new customer registration
+                    
                     String usernameInputReg = inputUtil.retrieveString("Username: ");
                     String passwordInputReg = inputUtil.retrieveString("Password: ");
                     String firstNameInputReg = inputUtil.retrieveString("First Name: ");
@@ -58,13 +66,11 @@ public class MainMenu {
 
                     if(userFromDb == null){
                         System.out.println("Username already exists... aborting");
+                        System.out.println("Try again...");
                     }else{
                         System.out.println("User Created");
-                    }
-                case "3":
-                
-                
-
+                    }     
+                    
                     break;
                 case "0":
                     running = false;
