@@ -13,7 +13,7 @@ public class UserAccount {
     public UserAccount() {
     }
 
-    public UserAccount(Integer accountNumber, String accountType, float balance, String details, Integer userIdFk) {
+    public UserAccount(Integer accountNumber, String accountType, Float balance, String details, Integer userIdFk) {
     this.accountNumber = accountNumber;
     this.accountType = accountType;
     this.balance = balance;
@@ -29,8 +29,13 @@ public class UserAccount {
         this.userIdFk = userIdFk;
         }
     
-    public UserAccount(Integer accountNumber, float balance){
+    public UserAccount(Integer accountNumber, Float balance){
         this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    
+    public UserAccount( Float balance){
+     
         this.balance = balance;
     }
 

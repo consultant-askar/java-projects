@@ -35,8 +35,8 @@ public class MainMenu {
 
             switch (input) {
                 case "1":
-                case "3":
-                    //Login
+                
+                    //Customer Login
                     String usernameInput = inputUtil.retrieveString("Username: ");
                     String passwordInput = inputUtil.retrieveString("Password: ");
 
@@ -47,13 +47,12 @@ public class MainMenu {
                         User userFromDb = this.userService.getUserGivenUsername(usernameInput);
                         new dashboard().view(userFromDb);
                     }else{
-                        System.out.println("Invalid username or password");
+                        System.out.println("Invalid username or password...Please try again");
                     }
 
                     break;
                 case "2":
-                
-                    //new customer registration
+                   //new customer registration
                     
                     String usernameInputReg = inputUtil.retrieveString("Username: ");
                     String passwordInputReg = inputUtil.retrieveString("Password: ");
@@ -66,17 +65,34 @@ public class MainMenu {
 
                     if(userFromDb == null){
                         System.out.println("Username already exists... aborting");
-                        System.out.println("Try again...");
+                        System.out.println("Please try again...");
+
                     }else{
                         System.out.println("User Created");
-                    }     
-                    
+                    } 
+
+                case "3":    
+                    // employee login
+
+                    String eUsernameInput = inputUtil.retrieveString("Username: ");
+                    String ePasswordInput = inputUtil.retrieveString("Password: ");
+
+                    Boolean areEmpCredentialsValid = employeeService.validateCredentials(new Employee(eUsernameInput, ePasswordInput));
+
+                    if(areEmpCredentialsValid){
+                        logger.info("Employee " + eUsernameInput + " successfully logged into system");
+                        Employee employeeFromDb = this.employeeService.getEmployeeGivenUsername(eUsernameInput);
+                        new dashboard().view(employeeFromDb);
+                    }else{
+                        System.out.println("Invalid employee username or password...Please try again..");
+                    }
+
                     break;
                 case "0":
                     running = false;
                     break;
                 default:
-                    System.out.println("invalid input");
+                    System.out.println("invalid input... Please try again..");
                     break;
             }  
         }

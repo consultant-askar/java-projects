@@ -83,20 +83,56 @@ public class UserAccountDaoImplementation implements UserAccountDao{
         // TODO Auto-generated method stub
         
     }
+
+
     @Override
-    public void deposite(UserAccount accountNumber, UserAccount balance) {
-        // TODO Auto-generated method stub
+    public void deposite(Integer accountNumber, Float amount) {
+        
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            
+            String sql = "update useraccounts set balance = ? where account_no = ? ";
+           
+            PreparedStatement ps = conn.prepareStatement(sql);
+          
+            ps.setFloat(1, amount);
+           
+            ps.setInt(2, accountNumber);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         
     }
+
+
+
     @Override
-    public void withdraw(UserAccount accountNumber, UserAccount balance) {
-        // TODO Auto-generated method stub
+    public void withdraw(Integer accountNumber, Float amount) {
         
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            
+            String sql = "update useraccounts set balance = ? where account_no = ? ";
+           
+            PreparedStatement ps = conn.prepareStatement(sql);
+          
+            ps.setFloat(1, amount);
+           
+            ps.setInt(2, accountNumber);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+
     }
    
 
 
+    
+    
 
-    
-    
-}

@@ -7,14 +7,21 @@ public interface UserAccountDao {
 
     void createUserAccount(UserAccount useraccount);
     void deleteUserAccount(UserAccount useraccount);
+
     List<UserAccount>getAllAccountsGivenUserId(Integer userId);
 
     /************************************ */
     
     void transferMoney(UserAccount accountNumber, UserAccount accountNumberAccount, UserAccount balance);
     
-    void deposite(UserAccount accountNumber, UserAccount balance);
-    void withdraw(UserAccount accountNumber, UserAccount balance);
+    void deposite(Integer accountNumber, Float amount);
+    void withdraw(Integer accountNumber, Float amount);
+    
+
+
+    
+
+    
 
 
 }

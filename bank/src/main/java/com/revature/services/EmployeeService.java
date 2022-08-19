@@ -5,7 +5,7 @@ import com.revature.dao.EmployeeDaoImplementation;
 import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoImplementation;
 import com.revature.models.Employee;
-import com.revature.models.User;
+
 
 
 public class EmployeeService {
@@ -20,45 +20,32 @@ public class EmployeeService {
         this.employeeDao = employeeDao;
     }
     
-    UserDao userDao;
+    
 
 
-    public EmployeeService(UserDao userDao){
-        this.userDao = userDao;
-    }
          /******************************* */
-    public boolean validateCredentials(User credentials) {
+    public boolean validateCredentials(Employee credentials) {
 
-        User userFromDb = userDao.getUserByUsername(credentials.getUsername());
-        if(userFromDb == null){
+        Employee employeeFromDb = employeeDao.getEmployeeByUsername(credentials.getUsername());
+        if(employeeFromDb == null){
             return false;
         }
 
-        if(userFromDb.getPassword().equals(credentials.getPassword())){
+        if(employeeFromDb.getPassword().equals(credentials.getPassword())){
             return true;
         }
         return false;
     }
         /**************************** */
 
-    public User getUserGivenUsername(String username){
-        return userDao.getUserByUsername(username);
+    public Employee getEmployeeGivenUsername(String username){
+        return employeeDao.getEmployeeByUsername(username);
     }
 
         /*************************************** */
         /************************************** */
 
-    public User createUser(User euserToCreate){
-
-        User userFromDb = userDao.getUserByUsername(euserToCreate.getUsername());
-
-        if(userFromDb == null){
-            userDao.createUser(euserToCreate);
-            return euserToCreate;
-        }
-
-        return null;
-    }
+   
 
 
 

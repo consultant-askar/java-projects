@@ -17,7 +17,7 @@ public class UserServiceTest {
     @Test
     void testValidateCredentialsValidCredentials() {
         //arrange
-        User objToPass = new User("kev123", "pass123");
+        User objToPass = new User("sezer", "p123");
         Mockito.when(userDao.getUserByUsername(objToPass.getUsername())).thenReturn(objToPass);
 
         //act
@@ -30,7 +30,7 @@ public class UserServiceTest {
     @Test
     void testValidateCredentialsInvalidUsername() {
         //arrange
-        User objToPass = new User("kev123", "pass123");
+        User objToPass = new User("sezer", "ps123");
         Mockito.when(userDao.getUserByUsername(objToPass.getUsername())).thenReturn(null);
 
         //act
@@ -43,7 +43,7 @@ public class UserServiceTest {
     @Test
     void testValidateCredentialsInvalidPassword() {
         //arrange
-        User objToPass = new User("kev123", "pass123");
+        User objToPass = new User("sezer", "ps123");
         User objReturnedFromDb = new User("kev123", "pass1234");
         Mockito.when(userDao.getUserByUsername(objToPass.getUsername())).thenReturn(objReturnedFromDb);
 
