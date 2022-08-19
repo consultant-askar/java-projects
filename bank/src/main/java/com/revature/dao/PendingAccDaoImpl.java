@@ -2,7 +2,9 @@ package com.revature.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import com.revature.services.PendingAccountService;
 import com.revature.models.PendingAccounts;
@@ -27,13 +29,31 @@ public class PendingAccDaoImpl implements PendingAccountDao {
 
     @Override
     public List<PendingAccounts> getAllPendings() {
-        // TODO Auto-generated method stub
-        return null;
+        List<PendingAccounts> accounts = new ArrayList<>();
+
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            
+            String sql = " select * from pending_accounts";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+           
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                accounts.add(new PendingAccounts(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getBoolean(4), rs.getInt(5)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return accounts;
+
+       
     }
 
-    /* (non-Javadoc)
-     * @see com.revature.dao.PendingAccountDao#creatRequest(com.revature.models.PendingAccounts)
-     */
+    
     @Override
      public void creatRequest(PendingAccounts pendingAccounts) {
         

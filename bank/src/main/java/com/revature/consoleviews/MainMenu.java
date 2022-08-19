@@ -69,6 +69,7 @@ public class MainMenu {
 
                     }else{
                         System.out.println("User Created");
+                        System.out.print("Please login using your username and password\n\n");
                     } 
 
                 case "3":    

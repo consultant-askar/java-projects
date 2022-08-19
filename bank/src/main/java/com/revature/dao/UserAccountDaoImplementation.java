@@ -33,7 +33,7 @@ public class UserAccountDaoImplementation implements UserAccountDao{
     }
     ///////////////////////////////////////////
     @Override
-    public void deleteUserAccount(UserAccount useraccount) {
+    public void deleteUserAccount(Integer useraccount) {
 
         try (Connection conn = ConnectionUtil.getConnection()) {
             
@@ -78,12 +78,6 @@ public class UserAccountDaoImplementation implements UserAccountDao{
        
        
     }
-    @Override
-    public void transferMoney(UserAccount accountNumber, UserAccount accountNumberAccount, UserAccount balance) {
-        // TODO Auto-generated method stub
-        
-    }
-
 
     @Override
     public void deposite(Integer accountNumber, Float amount) {
@@ -101,12 +95,8 @@ public class UserAccountDaoImplementation implements UserAccountDao{
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        
+        }  
     }
-
-
 
     @Override
     public void withdraw(Integer accountNumber, Float amount) {
@@ -127,9 +117,47 @@ public class UserAccountDaoImplementation implements UserAccountDao{
         }
         
     }
-
+    @Override
+    public void depositeFunds(Integer accountNumber, Float balance) {
 
     }
+       
+        /************** */
+    
+    @Override
+    public UserAccount getAccountById(Integer accountId) {
+     
+       UserAccount account = null;
+
+       try(Connection conn = ConnectionUtil.getConnection()) {
+
+        String sql = "select * from useraccounts where account_no = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, accountId);
+        ResultSet rs = ps.executeQuery();
+
+        while(rs.next()){
+            account = new UserAccount(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getString(4), rs.getInt(5));
+
+        }
+        
+       } catch (SQLException e) {
+        System.out.printf("Sql Exception Occured", e);
+       }
+
+         return account;
+    }
+
+    @Override
+    public void transferMoney(UserAccount accountNumber, UserAccount accountNumberAccount, UserAccount balance) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    }
+
+
+    
    
 
 

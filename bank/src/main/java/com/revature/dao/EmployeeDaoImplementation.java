@@ -63,12 +63,39 @@ public class EmployeeDaoImplementation implements EmployeeDao{
     }
 
 @Override
-public List<UserAccount> getAllApprovidAccounts() {
-    // TODO Auto-generated method stub
-    return null;
+public List<UserAccount> getAllUserAccounts() {
+    
+    List<UserAccount> accounts = new ArrayList<>();
+
+    try (Connection conn = ConnectionUtil.getConnection()) {
+        
+        String sql = "select * from useraccounts";
+        PreparedStatement ps = conn.prepareStatement(sql);
+
+        
+
+        ResultSet rs = ps.executeQuery();
+
+        while(rs.next()){
+            accounts.add(new UserAccount(rs.getInt(1),rs.getString(2),rs.getFloat(3),rs.getString(4), rs.getInt(5)));
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return accounts;
+
+
+}
+
+
+
+    
 }
 
 
 
 
-}
+
+

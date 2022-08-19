@@ -5,7 +5,9 @@ import com.revature.dao.EmployeeDaoImplementation;
 import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoImplementation;
 import com.revature.models.Employee;
-
+import com.revature.models.PendingAccounts;
+import com.revature.models.UserAccount;
+import java.util.List;
 
 
 public class EmployeeService {
@@ -41,11 +43,11 @@ public class EmployeeService {
     public Employee getEmployeeGivenUsername(String username){
         return employeeDao.getEmployeeByUsername(username);
     }
-
-        /*************************************** */
-        /************************************** */
-
-   
+        /*************************** */
+       
+    public List<UserAccount> getAllUserAccounts(){
+        return this.employeeDao.getAllUserAccounts();
+    }
 
 
 

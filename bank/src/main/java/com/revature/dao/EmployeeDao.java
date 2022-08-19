@@ -8,7 +8,7 @@ import java.util.List;
 public interface EmployeeDao {
 
     
-    //void creatEmployee(Employee employee);
+    
 
     Employee getEmployeeByUsername(String username);
        
@@ -16,7 +16,7 @@ public interface EmployeeDao {
 
         
 
-    List<UserAccount> getAllApprovidAccounts();
+    List<UserAccount> getAllUserAccounts();
 
    // List<> getAllPendingAccounts();
 

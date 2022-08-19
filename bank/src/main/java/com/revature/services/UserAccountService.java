@@ -21,23 +21,51 @@ public class UserAccountService {
         return this.userAccountDao.getAllAccountsGivenUserId(userId);
     }
             /********* */
-    public void deleteUserAccount(UserAccount useraccount){
-        this.userAccountDao.deleteUserAccount(useraccount);
+    public void deleteUserAccount(Integer accountToDelete){
+        this.userAccountDao.deleteUserAccount(accountToDelete);
     }
 
     
 
-    public boolean deposite(Integer userAcc, Float amount) {
+    public void depositeFunds(Integer accountId, String amountToDeposite){
+        UserAccount userAccount = new UserAccount();
+        userAccountDao.getAccountById(accountId);
+        Float depositeAmount = 0.0f;
+        try{
+            depositeAmount = Float.parseFloat(amountToDeposite);
+
+        }catch(NumberFormatException e){
+            System.out.println("invalid input");
+        }
+        if(depositeAmount < 1) {
+            System.out.println("Amount must be greater than one dollar");
+        }
+        depositeAmount +=  userAccount.getBalance();
+        //depositeFunds(userAccountDao.getAccountById(accountId), depositeAmount);
+        //return true;
+    }
+
+
+
+    public boolean deposite(Integer accountId, Float amount) {
 
         
-        if (amount < 0) { 
-            System.out.println("Amount must be positive number");
-         return false;
+        
+        userAccountDao.getAccountById(accountId);
+        Float depositeAmount = 0.0f;
+        try{
+            depositeAmount = amount;
 
+        }catch(NumberFormatException e){
+            System.out.println("invalid input");
         }
-        // send information to Dao
+        if(depositeAmount < 1) {
+            System.out.println("Amount must be greater than one dollar");
+        }
+        
+        
     
-        this.userAccountDao.deposite(userAcc, amount);
+        this.userAccountDao.deposite(accountId, amount);
 
 
         return true;
