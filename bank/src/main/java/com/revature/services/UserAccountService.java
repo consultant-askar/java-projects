@@ -28,8 +28,7 @@ public class UserAccountService {
     
 
     public void depositeFunds(Integer accountId, String amountToDeposite){
-        UserAccount userAccount = new UserAccount();
-        userAccountDao.getAccountById(accountId);
+        UserAccount userAccount = userAccountDao.getAccountById(accountId);
         Float depositeAmount = 0.0f;
         try{
             depositeAmount = Float.parseFloat(amountToDeposite);
@@ -51,7 +50,9 @@ public class UserAccountService {
 
         
         
-        userAccountDao.getAccountById(accountId);
+        UserAccount account = userAccountDao.getAccountById(accountId);
+
+
         Float depositeAmount = 0.0f;
         try{
             depositeAmount = amount;

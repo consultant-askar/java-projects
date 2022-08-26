@@ -25,8 +25,8 @@ public class ConnectionUtil {
      //url syntax: jdbc:postgresql://[DBEndpoint]/[DB]
     //System.getenv() is a method to retrieve values of environment variables
     static String url = "jdbc:postgresql://database-1.ctwtedjgef6h.us-west-2.rds.amazonaws.com/bankmini";
-    private static final String username = "postgres";
-    private static final String password = "Revlearning22";
+    private static final String username = "***********";
+    private static final String password = "***********";
 
     public static Connection getConnection(){
 

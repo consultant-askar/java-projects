@@ -89,3 +89,6 @@ Caused by: java.net.UnknownHostException: null
 2022-08-19 13:44:34,026 INFO c.r.c.MainMenu [main] User sezer successfully logged into system
 2022-08-19 13:51:47,645 INFO c.r.c.MainMenu [main] User sezer successfully logged into system
 2022-08-19 14:45:11,325 INFO c.r.c.MainMenu [main] Employee sezer successfully logged into system
+2022-08-19 15:05:03,089 INFO c.r.c.MainMenu [main] User newcustomer successfully logged into system
+2022-08-19 15:09:14,553 INFO c.r.c.MainMenu [main] Employee sezer successfully logged into system
+2022-08-19 15:09:50,414 INFO c.r.c.MainMenu [main] User aa successfully logged into system
