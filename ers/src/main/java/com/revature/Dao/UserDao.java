@@ -7,13 +7,15 @@ import java.util.List;
 public interface UserDao {
 
     
-
-    List<Reimbursement>viewMyPastTickets();
-
-
-    void addNewReimbursement(Reimbursement reimbursement);
+    User getUserByUsername(String username);
 
 
+   // List <Reimbursement> viewMyPastReimbRequests();
+
+
+    //void requestNewReimb (Reimbursement reimbursement);
+
+    void createUser(User user);
 
     
 }

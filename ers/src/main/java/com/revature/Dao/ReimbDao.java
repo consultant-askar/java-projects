@@ -3,7 +3,7 @@ package com.revature.Dao;
 import java.util.List;
 
 import com.revature.Models.Reimbursement;
-import com.revature.Models.reimbursement;
+
 
 
 
@@ -17,7 +17,7 @@ List<Reimbursement>getAllReimbByStatus();
 
 
 
-void approveOrDeny(reimbursement reimbursement);
+void approveOrDeny(Reimbursement reimbursement);
 
     
 }

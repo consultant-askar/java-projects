@@ -28,9 +28,7 @@ public class InputUtil {
             } catch (Exception e){
                 e.printStackTrace();
 
-            }  finally{
-                
-            }
+            }  
         }
 
         return num;

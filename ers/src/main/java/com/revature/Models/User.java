@@ -5,36 +5,37 @@ public class User {
     private Integer userId;
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
-    private String userRole;
+    private Integer userRole;
 
     public User() {
     }
 
     public User(String username, String password) {
-        
+
         this.username = username;
         this.password = password;
     }
 
-    public User(String username, String password, String firstName, String lastName, String email, String userRole) {
-        
+    public User(String username, String password, String firstname, String lastname, String email, Integer userRole) {
+
         this.username = username;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.userRole = userRole;
     }
 
-    public User(Integer userId, String username, String password, String firstName, String lastName, String email, String userRole) {
+    public User(Integer userId, String username, String password, String firstname, String lastname, String email,
+            Integer userRole) {
         this.userId = userId;
         this.username = username;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.userRole = userRole;
     }
@@ -63,20 +64,20 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    public String getFirstname() {
+        return this.firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return this.lastName;
+    public String getLastname() {
+        return this.lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -87,29 +88,25 @@ public class User {
         this.email = email;
     }
 
-    public String getUserRole() {
+    public Integer getUserRole() {
         return this.userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setUserRole(Integer userRole) {
         this.userRole = userRole;
     }
-
-
-
-   
 
     @Override
     public String toString() {
         return "{" +
-            " userId='" + getUserId() + "'" +
-            ", username='" + getUsername() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", firstName='" + getFirstName() + "'" +
-            ", lastName='" + getLastName() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", userRole='" + getUserRole() + "'" +
-            "}";
+                " userId='" + getUserId() + "'" +
+                ", username='" + getUsername() + "'" +
+                ", password='" + getPassword() + "'" +
+                ", firstname='" + getFirstname() + "'" +
+                ", lastname='" + getLastname() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", userRole='" + getUserRole() + "'" +
+                "}";
     }
-    
+
 }

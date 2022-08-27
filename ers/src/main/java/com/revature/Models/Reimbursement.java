@@ -1,22 +1,26 @@
 package com.revature.Models;
 
-public class Reimbursement {
+public class Reimbursement{
 
     private Integer reimbId;
     private String reimbAmount;
     private String reimbSubmitted;
     private String reimbResolved;
     private String reimbDescription;
-    //private reimbReceipt bytea;
-    private String author;
-    private String resolver;
-    private String reimbStatus;
-    private String reimbType;
+    //private reimbReceipt bytea;           **********    how to represent this field????
+    private Integer author;
+    private Integer resolver;
+    private Integer reimbStatus;
+    private Integer reimbType;
+
+
 
     public Reimbursement() {
+
     }
 
-    public Reimbursement(Integer reimbId, String reimbAmount, String reimbSubmitted, String reimbResolved, String reimbDescription, String author, String resolver, String reimbStatus, String reimbType) {
+
+    public Reimbursement(Integer reimbId, String reimbAmount, String reimbSubmitted, String reimbResolved, String reimbDescription, Integer author, Integer resolver, Integer reimbStatus, Integer reimbType) {
         this.reimbId = reimbId;
         this.reimbAmount = reimbAmount;
         this.reimbSubmitted = reimbSubmitted;
@@ -27,6 +31,9 @@ public class Reimbursement {
         this.reimbStatus = reimbStatus;
         this.reimbType = reimbType;
     }
+
+
+
 
     public Integer getReimbId() {
         return this.reimbId;
@@ -68,39 +75,38 @@ public class Reimbursement {
         this.reimbDescription = reimbDescription;
     }
 
-    public String getAuthor() {
+    public Integer getAuthor() {
         return this.author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Integer author) {
         this.author = author;
     }
 
-    public String getResolver() {
+    public Integer getResolver() {
         return this.resolver;
     }
 
-    public void setResolver(String resolver) {
+    public void setResolver(Integer resolver) {
         this.resolver = resolver;
     }
 
-    public String getReimbStatus() {
+    public Integer getReimbStatus() {
         return this.reimbStatus;
     }
 
-    public void setReimbStatus(String reimbStatus) {
+    public void setReimbStatus(Integer reimbStatus) {
         this.reimbStatus = reimbStatus;
     }
 
-    public String getReimbType() {
+    public Integer getReimbType() {
         return this.reimbType;
     }
 
-    public void setReimbType(String reimbType) {
+    public void setReimbType(Integer reimbType) {
         this.reimbType = reimbType;
     }
 
-  
 
 
     @Override
@@ -119,4 +125,11 @@ public class Reimbursement {
     }
 
 
-}
+
+
+    }
+
+    
+
+
+
