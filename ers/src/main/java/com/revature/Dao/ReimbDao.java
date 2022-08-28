@@ -7,17 +7,18 @@ import com.revature.Models.Reimbursement;
 
 
 
+// The Manager will utilize this dao
 
 public interface ReimbDao {
 
-List<Reimbursement>viewAllReimb();
 
+List<Reimbursement>getAllReimbByStatus(Integer reimbStatusId);
 
-List<Reimbursement>getAllReimbByStatus();
+List<Reimbursement>getAllReimbursements();
 
+// RR: Reimbursement Request
 
-
-void approveOrDeny(Reimbursement reimbursement);
+void approveOrDenyRR(Integer reimbStatusId);
 
     
 }

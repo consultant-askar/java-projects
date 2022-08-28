@@ -1,37 +1,56 @@
 package com.revature.Models;
 
+import java.sql.Date;
+
 public class Reimbursement{
 
     private Integer reimbId;
-    private String reimbAmount;
-    private String reimbSubmitted;
-    private String reimbResolved;
+    private Float reimbAmount;
+    private Date reimbSubmitted;
+    private Date reimbResolved;
     private String reimbDescription;
-    //private reimbReceipt bytea;           **********    how to represent this field????
-    private Integer author;
-    private Integer resolver;
-    private Integer reimbStatus;
-    private Integer reimbType;
+    //private reimbReceipt bytea;           **********    how to represent Bytea data type ????
+    private Integer authorFK;        // foreign key
+    private Integer resolver;       // foreign key      
+    private Integer reimbStatusId;   // foreign key
+    private Integer reimbType;    // foreign key
 
 
 
     public Reimbursement() {
-
     }
 
+    public Reimbursement(Float reimbAmount, Integer reimbType) { 
 
-    public Reimbursement(Integer reimbId, String reimbAmount, String reimbSubmitted, String reimbResolved, String reimbDescription, Integer author, Integer resolver, Integer reimbStatus, Integer reimbType) {
+        this.reimbAmount = reimbAmount;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement(Integer authorFK, Float reimbAmount, Integer reimbType) { 
+
+        this.authorFK = authorFK;
+        this.reimbAmount = reimbAmount;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement (Integer authorFK, Float reimbAmount, Date reimbSubmitted, Integer reimbType) {
+        this.authorFK = authorFK;
+        this.reimbAmount = reimbAmount;
+        this.reimbSubmitted = reimbSubmitted;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement(Integer reimbId, Float reimbAmount, Date reimbSubmitted, Date reimbResolved, String reimbDescription, Integer authorFK, Integer resolver, Integer reimbStatusId, Integer reimbType) {
         this.reimbId = reimbId;
         this.reimbAmount = reimbAmount;
         this.reimbSubmitted = reimbSubmitted;
         this.reimbResolved = reimbResolved;
         this.reimbDescription = reimbDescription;
-        this.author = author;
+        this.authorFK = authorFK;
         this.resolver = resolver;
-        this.reimbStatus = reimbStatus;
+        this.reimbStatusId = reimbStatusId;
         this.reimbType = reimbType;
     }
-
 
 
 
@@ -43,27 +62,27 @@ public class Reimbursement{
         this.reimbId = reimbId;
     }
 
-    public String getReimbAmount() {
+    public Float getReimbAmount() {
         return this.reimbAmount;
     }
 
-    public void setReimbAmount(String reimbAmount) {
+    public void setReimbAmount(Float reimbAmount) {
         this.reimbAmount = reimbAmount;
     }
 
-    public String getReimbSubmitted() {
+    public Date getReimbSubmitted() {
         return this.reimbSubmitted;
     }
 
-    public void setReimbSubmitted(String reimbSubmitted) {
+    public void setReimbSubmitted(Date reimbSubmitted) {
         this.reimbSubmitted = reimbSubmitted;
     }
 
-    public String getReimbResolved() {
+    public Date getReimbResolved() {
         return this.reimbResolved;
     }
 
-    public void setReimbResolved(String reimbResolved) {
+    public void setReimbResolved(Date reimbResolved) {
         this.reimbResolved = reimbResolved;
     }
 
@@ -75,12 +94,12 @@ public class Reimbursement{
         this.reimbDescription = reimbDescription;
     }
 
-    public Integer getAuthor() {
-        return this.author;
+    public Integer getAuthorFK() {
+        return this.authorFK;
     }
 
-    public void setAuthor(Integer author) {
-        this.author = author;
+    public void setAuthorFK(Integer authorFK) {
+        this.authorFK = authorFK;
     }
 
     public Integer getResolver() {
@@ -92,11 +111,11 @@ public class Reimbursement{
     }
 
     public Integer getReimbStatus() {
-        return this.reimbStatus;
+        return this.reimbStatusId;
     }
 
     public void setReimbStatus(Integer reimbStatus) {
-        this.reimbStatus = reimbStatus;
+        this.reimbStatusId = reimbStatus;
     }
 
     public Integer getReimbType() {
@@ -109,6 +128,7 @@ public class Reimbursement{
 
 
 
+
     @Override
     public String toString() {
         return "{" +
@@ -117,7 +137,7 @@ public class Reimbursement{
             ", reimbSubmitted='" + getReimbSubmitted() + "'" +
             ", reimbResolved='" + getReimbResolved() + "'" +
             ", reimbDescription='" + getReimbDescription() + "'" +
-            ", author='" + getAuthor() + "'" +
+            ", authorFK='" + getAuthorFK() + "'" +
             ", resolver='" + getResolver() + "'" +
             ", reimbStatus='" + getReimbStatus() + "'" +
             ", reimbType='" + getReimbType() + "'" +
@@ -127,7 +147,13 @@ public class Reimbursement{
 
 
 
+
     }
+
+
+
+
+    
 
     
 

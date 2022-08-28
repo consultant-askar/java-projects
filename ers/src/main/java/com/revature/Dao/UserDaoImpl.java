@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
+import com.revature.Models.Reimbursement;
 import com.revature.Models.User;
 import com.revature.Util.ConnectionUtil;
+
+
 
 public class UserDaoImpl implements UserDao {
 
@@ -31,19 +35,16 @@ public class UserDaoImpl implements UserDao {
                             } 
 
         } catch (SQLException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
             return user;
-        }
-
-
+    }
 
 
 
     @Override
     public void createUser(User user) {
-        
         
         try {
             
@@ -68,6 +69,26 @@ public class UserDaoImpl implements UserDao {
             System.out.println(e);
         }
         
+    }
+
+
+
+
+
+
+    @Override
+    public void createNewRR(Reimbursement reimbursement) {
+        
+
+
+    }
+
+
+
+    @Override
+    public List<Reimbursement> viewAllMyRR(User user) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 

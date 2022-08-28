@@ -23,7 +23,8 @@ public class ConnectionUtil {
 
         } catch (SQLException e) {
 
-            System.out.println(e); // check this line
+            e.printStackTrace();
+            //System.out.println(e); // check this line
         }
 
         return conn;

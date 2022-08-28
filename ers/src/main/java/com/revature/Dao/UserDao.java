@@ -9,11 +9,12 @@ public interface UserDao {
     
     User getUserByUsername(String username);
 
+    // RR : Reimb request
+    List <Reimbursement> viewAllMyRR(User user);
 
-   // List <Reimbursement> viewMyPastReimbRequests();
 
+    void createNewRR (Reimbursement reimbursement);
 
-    //void requestNewReimb (Reimbursement reimbursement);
 
     void createUser(User user);
 
