@@ -1,8 +1,8 @@
-package com.revature.Dao;
+package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.Models.Reimbursement;
+import com.revature.models.Reimbursement;
 
 
 
@@ -14,11 +14,16 @@ public interface ReimbDao {
 
 List<Reimbursement>getAllReimbByStatus(Integer reimbStatusId);
 
+
 List<Reimbursement>getAllReimbursements();
 
 // RR: Reimbursement Request
 
-void approveOrDenyRR(Integer reimbStatusId);
+void approveOrDenyRR(Integer statusID, Integer authorId, Integer reimbId);
+
+
+
+void createNewRR(Reimbursement reimbursement);
 
     
 }

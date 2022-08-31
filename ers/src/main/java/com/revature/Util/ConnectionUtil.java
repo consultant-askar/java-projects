@@ -1,4 +1,4 @@
-package com.revature.Util;
+package com.revature.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +14,9 @@ public class ConnectionUtil {
     private static final String username = "postgres";
     private static final String password = "Revlearning22";
 
+   
+   
     public static Connection getConnection(){
-
         Connection conn = null;
 
         try {

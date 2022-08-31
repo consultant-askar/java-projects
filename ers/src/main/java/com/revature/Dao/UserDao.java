@@ -1,21 +1,22 @@
-package com.revature.Dao;
-import com.revature.Models.*;
+package com.revature.dao;
+import com.revature.models.*;
 import java.util.List;
 
 
 
 public interface UserDao {
 
-    
+    //--
     User getUserByUsername(String username);
 
-    // RR : Reimb request
-    List <Reimbursement> viewAllMyRR(User user);
 
 
-    void createNewRR (Reimbursement reimbursement);
+    // RR : Reimb Request   //--
+    List <Reimbursement> viewAllMyRR(String username);
 
+   
 
+    //--
     void createUser(User user);
 
     

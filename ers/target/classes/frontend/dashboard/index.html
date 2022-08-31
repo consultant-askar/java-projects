@@ -20,30 +20,24 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="./register">New User Registration</a>
-                </div>
-            </div>
+            <button class="btn btn-outline-danger" id="logout-btn">Logout</button>
         </div>
+        
+        
     </nav>
-    
+
+
+    <div id="items-container"></div>
 
 
 
-
-    <div id="login-form-container">
-        <form id="login-form">
-            <h3>Login</h3>
-            <input type="text" id="username-input" placeholder="Enter Username"/>
-            <input type="password" id="password-input" placeholder="Enter Password"/>
-            <div id="message"></div>
-            <button class="btn btn-primary">Login</button>
-        </form>
-    </div>
-
-    
-
+    <form id="add-reimb-form">
+        <input type="number" id="amount-to-create" placeholder="Enter Reimbursement Amount" required/>
+        <input type="date" id="date-to-create" placeholder="Enter Date"/>
+        <input type="text" id="description-to-create" placeholder="Any Description ?"/>
+        
+        <button class="btn btn-success">Add New Reimbursement Request</button>
+    </form>
 
 
 

@@ -1,4 +1,4 @@
-package com.revature.Models;
+package com.revature.models;
 
 public class User {
 
@@ -29,6 +29,17 @@ public class User {
         this.userRole = userRole;
     }
 
+
+    public User(String username, String password, String firstname, String lastname, String email) {
+
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        
+    }
+    // All fields constructor////
     public User(Integer userId, String username, String password, String firstname, String lastname, String email,
             Integer userRole) {
         this.userId = userId;

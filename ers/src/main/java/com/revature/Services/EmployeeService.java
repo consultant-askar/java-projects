@@ -1,12 +1,15 @@
-package com.revature.Services;
+package com.revature.services;
 
-import com.revature.Models.User;
-import com.revature.Dao.*;
+import com.revature.models.*;
+import com.revature.dao.*;
+import java.util.List;
+
+
 
 
 
 public class EmployeeService {
-
+    ReimbDao reimbDao;
     UserDao userDao;
 
     public EmployeeService(){
@@ -32,9 +35,19 @@ public class EmployeeService {
         return false;
     }
 
+
+
+
     public User getUserGivenUsername(String username){
         return userDao.getUserByUsername(username);
     }
+
+
+    public List<Reimbursement> viewAllMyR(String username){
+        return userDao.viewAllMyRR(username);
+
+    }
+
 
     public User createUser(User userToCreate){
 
@@ -49,4 +62,10 @@ public class EmployeeService {
         return null;
     }
     
+
+    public void createNewReimbR(Reimbursement reimbursement){
+        reimbDao.createNewRR(reimbursement);
+    }
+
+
 }

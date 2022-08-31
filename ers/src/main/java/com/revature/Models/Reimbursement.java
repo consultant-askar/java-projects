@@ -1,46 +1,23 @@
-package com.revature.Models;
+package com.revature.models;
 
 import java.sql.Date;
+import java.util.List;
 
-public class Reimbursement{
+public class Reimbursement {
 
     private Integer reimbId;
-    private Float reimbAmount;
+    private Double reimbAmount;
     private Date reimbSubmitted;
     private Date reimbResolved;
     private String reimbDescription;
     //private reimbReceipt bytea;           **********    how to represent Bytea data type ????
     private Integer authorFK;        // foreign key
     private Integer resolver;       // foreign key      
-    private Integer reimbStatusId;   // foreign key
+    private Integer reimbStatusId; // foreign key
     private Integer reimbType;    // foreign key
 
-
-
-    public Reimbursement() {
-    }
-
-    public Reimbursement(Float reimbAmount, Integer reimbType) { 
-
-        this.reimbAmount = reimbAmount;
-        this.reimbType = reimbType;
-    }
-
-    public Reimbursement(Integer authorFK, Float reimbAmount, Integer reimbType) { 
-
-        this.authorFK = authorFK;
-        this.reimbAmount = reimbAmount;
-        this.reimbType = reimbType;
-    }
-
-    public Reimbursement (Integer authorFK, Float reimbAmount, Date reimbSubmitted, Integer reimbType) {
-        this.authorFK = authorFK;
-        this.reimbAmount = reimbAmount;
-        this.reimbSubmitted = reimbSubmitted;
-        this.reimbType = reimbType;
-    }
-
-    public Reimbursement(Integer reimbId, Float reimbAmount, Date reimbSubmitted, Date reimbResolved, String reimbDescription, Integer authorFK, Integer resolver, Integer reimbStatusId, Integer reimbType) {
+    
+    public Reimbursement(Integer reimbId, Double reimbAmount, Date reimbSubmitted, Date reimbResolved, String reimbDescription, Integer authorFK, Integer resolver, Integer reimbStatusId, Integer reimbType) {
         this.reimbId = reimbId;
         this.reimbAmount = reimbAmount;
         this.reimbSubmitted = reimbSubmitted;
@@ -48,6 +25,41 @@ public class Reimbursement{
         this.reimbDescription = reimbDescription;
         this.authorFK = authorFK;
         this.resolver = resolver;
+        this.reimbStatusId = reimbStatusId;
+        this.reimbType = reimbType;
+    }
+
+
+
+    public Reimbursement() {
+    }
+
+    public Reimbursement(Double reimbAmount, Integer reimbType) { 
+
+        this.reimbAmount = reimbAmount;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement(Integer authorFK, Double reimbAmount, Integer reimbType) { 
+
+        this.authorFK = authorFK;
+        this.reimbAmount = reimbAmount;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement (Double reimbAmount, Date reimbSubmitted, Integer reimbType) {
+    
+        this.reimbAmount = reimbAmount;
+        this.reimbSubmitted = reimbSubmitted;
+        this.reimbType = reimbType;
+    }
+
+    public Reimbursement(Double reimbAmount, Date reimbSubmitted, Date reimbResolved, String reimbDescription,Integer reimbStatusId, Integer reimbType) {
+        
+        this.reimbAmount = reimbAmount;
+        this.reimbSubmitted = reimbSubmitted;
+        this.reimbResolved = reimbResolved;
+        this.reimbDescription = reimbDescription;
         this.reimbStatusId = reimbStatusId;
         this.reimbType = reimbType;
     }
@@ -62,11 +74,11 @@ public class Reimbursement{
         this.reimbId = reimbId;
     }
 
-    public Float getReimbAmount() {
+    public Double getReimbAmount() {
         return this.reimbAmount;
     }
 
-    public void setReimbAmount(Float reimbAmount) {
+    public void setReimbAmount(Double reimbAmount) {
         this.reimbAmount = reimbAmount;
     }
 
